@@ -57,7 +57,7 @@ out <- tibble(
   'start'	= dat$year,
   'end'	= dat$year,
   'description_1'	= paste0('AUTHORS: ', dat$author),
-  'description_2'	= paste0('DOI: ', dat$doi),
+  'description_2'	= paste0('DOI: ', 'https://doi.org/', dat$doi),
   'description_3'	= '',
   'in_resume' = ''
 )

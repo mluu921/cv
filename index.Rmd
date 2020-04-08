@@ -59,10 +59,8 @@ source('parsing_functions.R')
 source('gather_data.R')
 
 # Parse pubmed for updated publications 
-source('gather_pubmed_pubs.R')
+# source('gather_pubmed_pubs.R')
 ```
-
-
 
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
@@ -77,6 +75,24 @@ if(PDF_EXPORT){
 
 ```
 
+```{css}
+
+#title{
+  position: relative;
+  left: 0.55in;
+  margin: auto 0.55in 0.2in auto;
+  line-height: 1.2;
+}
+
+#title h1{
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+```
 
 Aside
 ================================================================================
@@ -116,14 +132,12 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Michael Luu {#title}
+Michael Luu, MPH {#title}
 --------------------------------------------------------------------------------
 
 ```{r, eval = F}
 print_text_block(text_blocks, 'intro')
 ```
-
-
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
@@ -131,8 +145,6 @@ Education {data-icon=graduation-cap data-concise=true}
 ```{r}
 print_section(position_data, 'education')
 ```
-
-
 
 Research Experience {data-icon=laptop}
 --------------------------------------------------------------------------------
@@ -199,7 +211,6 @@ Professional Membership  {data-icon=users}
 ```{r}
 print_section(membership_data, 'membership')
 ```
-
 
 PEER-REVIEWED PUBLICATIONS {data-icon=book}
 --------------------------------------------------------------------------------
