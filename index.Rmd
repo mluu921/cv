@@ -57,6 +57,9 @@ source('parsing_functions.R')
 
 # Load data for CV/Resume
 source('gather_data.R')
+
+# Parse pubmed for updated publications 
+source('gather_pubmed_pubs.R')
 ```
 
 
@@ -79,9 +82,9 @@ Aside
 ================================================================================
 
 
-![logo](logo.png){width=100%}
+<!-- ![logo](logo.png){width=100%} -->
 
-```{r}
+```{r, eval = F}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
   glue("View this CV online with links at _{CV_HTML_LOC}_")
@@ -98,23 +101,17 @@ contact_info %>%
   glue_data("- <i class='fa fa-{icon}'></i> {contact}")
 ```
 
-Language Skills {#skills}
---------------------------------------------------------------------------------
+<!-- Language Skills {#skills} -->
+<!-- -------------------------------------------------------------------------------- -->
 
-```{r}
+```{r, eval = F}
 build_skill_bars(skills)
 ```
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
-
-The source code is available at [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
-
 Last updated on `r Sys.Date()`.
-
-
 
 Main
 ================================================================================
@@ -144,8 +141,6 @@ Research Experience {data-icon=laptop}
 print_section(position_data, 'research_positions')
 ```
 
-
-
 <!-- Industry Experience {data-icon=suitcase} -->
 <!-- -------------------------------------------------------------------------------- -->
 
@@ -160,9 +155,6 @@ print_section(position_data, 'research_positions')
 <!-- ``` -->
 
 <!-- These breaks just force a new page so section doesnt get cut off -->
-<br>
-<br>
-<br>
 
 Teaching Experience {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
@@ -173,38 +165,33 @@ print_text_block(text_blocks, 'teaching_experience_aside')
 ```
 :::
 
-
 ```{r}
 print_section(position_data, 'teaching_positions')
 ```
 
 
-<!-- Selected Data Science Writing {data-icon=chart-line} -->
-<!-- -------------------------------------------------------------------------------- -->
+Projects {data-icon=chart-line}
+--------------------------------------------------------------------------------
 
-<!-- ::: aside -->
-<!-- ```{r} -->
-<!-- print_text_block(text_blocks, 'data_science_writing_aside') -->
-<!-- ``` -->
-<!-- ::: -->
+::: aside
+```{r, eval = F}
+print_text_block(text_blocks, 'data_science_writing_aside')
+```
+:::
 
-<!-- ```{r} -->
-<!-- print_section(position_data, 'data_science_writings') -->
-<!-- ``` -->
-
+```{r}
+print_section(projects_data, 'projects')
 
 
-<!-- Selected Press (About)  {data-icon=newspaper} -->
-<!-- -------------------------------------------------------------------------------- -->
+```
 
-<!-- ```{r} -->
-<!-- print_section(position_data, 'about_me_press') -->
-<!-- ``` -->
+Professional Activities  {data-icon=newspaper}
+--------------------------------------------------------------------------------
 
+```{r}
+print_section(activities_data, 'activities')
 
-<br>
-<br>
-
+```
 
 <!-- Selected Press (By)  {data-icon=newspaper} -->
 <!-- -------------------------------------------------------------------------------- -->
@@ -214,14 +201,12 @@ print_section(position_data, 'teaching_positions')
 <!-- ``` -->
 
 
-
-Selected Publications, Posters, and Talks {data-icon=book}
+PEER-REVIEWED PUBLICATIONS {data-icon=book}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'academic_articles')
+print_section(publications, 'academic_articles')
 ```
-
 
 
 ```{r}
