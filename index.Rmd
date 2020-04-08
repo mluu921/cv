@@ -170,7 +170,7 @@ print_section(position_data, 'teaching_positions')
 ```
 
 
-Projects {data-icon=chart-line}
+Projects {data-icon=code}
 --------------------------------------------------------------------------------
 
 ::: aside
@@ -185,7 +185,7 @@ print_section(projects_data, 'projects')
 
 ```
 
-Professional Activities  {data-icon=newspaper}
+Professional Activities  {data-icon=car}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -193,12 +193,12 @@ print_section(activities_data, 'activities')
 
 ```
 
-<!-- Selected Press (By)  {data-icon=newspaper} -->
-<!-- -------------------------------------------------------------------------------- -->
+Professional Membership  {data-icon=users}
+--------------------------------------------------------------------------------
 
-<!-- ```{r} -->
-<!-- print_section(position_data, 'by_me_press') -->
-<!-- ``` -->
+```{r}
+print_section(membership_data, 'membership')
+```
 
 
 PEER-REVIEWED PUBLICATIONS {data-icon=book}

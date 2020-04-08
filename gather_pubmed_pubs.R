@@ -43,6 +43,12 @@ dat <- dat %>%
     !str_detect(author, 'MH Luu')
   )
 
+dat <- dat %>%
+  mutate(
+    author = str_replace_all(author, 'M Luu', '<b>M Luu</b>')
+  )
+
+
 out <- tibble(
   'section'	= 'academic_articles',
   'title'	= dat$title,
@@ -55,6 +61,7 @@ out <- tibble(
   'description_3'	= '',
   'in_resume' = ''
 )
+
 
 sheets_auth(
   email = 'mluu921@gmail.com'
