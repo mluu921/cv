@@ -1,6 +1,6 @@
 ---
-title: "Nick Strayer's CV"
-author: Nick Strayer
+title: "Michael Luu's CV"
+author: Michael Luu
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -27,7 +27,7 @@ library(tidyverse)
 using_googlesheets <- TRUE
 
 # Just the copied URL from the sheet
-positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/14MQICF2F8-vf8CKPF1m4lyGKO6_thG-4aSwat1e2TWc"
+positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1TX1PmIAqO0bjKlo9L_YbjTHFMqN4dDD9pmS0Ib1aG2c"
 
 # Is this sheet available for anyone to read? If you're using a private sheet
 # set this to false and go to gather_data.R and run the data loading manually
@@ -71,6 +71,7 @@ if(PDF_EXPORT){
   }
   </style>")
 }
+
 ```
 
 
@@ -97,16 +98,12 @@ contact_info %>%
   glue_data("- <i class='fa fa-{icon}'></i> {contact}")
 ```
 
-
-
 Language Skills {#skills}
 --------------------------------------------------------------------------------
 
 ```{r}
 build_skill_bars(skills)
 ```
-
-
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
@@ -122,10 +119,10 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Michael Luu {#title}
 --------------------------------------------------------------------------------
 
-```{r}
+```{r, eval = F}
 print_text_block(text_blocks, 'intro')
 ```
 
@@ -149,18 +146,18 @@ print_section(position_data, 'research_positions')
 
 
 
-Industry Experience {data-icon=suitcase}
---------------------------------------------------------------------------------
+<!-- Industry Experience {data-icon=suitcase} -->
+<!-- -------------------------------------------------------------------------------- -->
 
-::: aside
-```{r}
-print_text_block(text_blocks, 'industy_experience_aside')
-```
-:::
+<!-- ::: aside -->
+<!-- ```{r} -->
+<!-- print_text_block(text_blocks, 'industy_experience_aside') -->
+<!-- ``` -->
+<!-- ::: -->
 
-```{r}
-print_section(position_data, 'industry_positions')
-```
+<!-- ```{r} -->
+<!-- print_section(position_data, 'industry_positions') -->
+<!-- ``` -->
 
 <!-- These breaks just force a new page so section doesnt get cut off -->
 <br>
@@ -171,50 +168,50 @@ Teaching Experience {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
 ::: aside
-```{r}
+```{r, eval = F}
 print_text_block(text_blocks, 'teaching_experience_aside')
 ```
 :::
+
 
 ```{r}
 print_section(position_data, 'teaching_positions')
 ```
 
 
+<!-- Selected Data Science Writing {data-icon=chart-line} -->
+<!-- -------------------------------------------------------------------------------- -->
 
-Selected Data Science Writing {data-icon=chart-line}
---------------------------------------------------------------------------------
+<!-- ::: aside -->
+<!-- ```{r} -->
+<!-- print_text_block(text_blocks, 'data_science_writing_aside') -->
+<!-- ``` -->
+<!-- ::: -->
 
-::: aside
-```{r}
-print_text_block(text_blocks, 'data_science_writing_aside')
-```
-:::
-
-```{r}
-print_section(position_data, 'data_science_writings')
-```
-
+<!-- ```{r} -->
+<!-- print_section(position_data, 'data_science_writings') -->
+<!-- ``` -->
 
 
-Selected Press (About)  {data-icon=newspaper}
---------------------------------------------------------------------------------
 
-```{r}
-print_section(position_data, 'about_me_press')
-```
+<!-- Selected Press (About)  {data-icon=newspaper} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- ```{r} -->
+<!-- print_section(position_data, 'about_me_press') -->
+<!-- ``` -->
 
 
 <br>
 <br>
 
 
-Selected Press (By)  {data-icon=newspaper}
---------------------------------------------------------------------------------
+<!-- Selected Press (By)  {data-icon=newspaper} -->
+<!-- -------------------------------------------------------------------------------- -->
 
-```{r}
-print_section(position_data, 'by_me_press')
-```
+<!-- ```{r} -->
+<!-- print_section(position_data, 'by_me_press') -->
+<!-- ``` -->
 
 
 
