@@ -63,7 +63,7 @@ out <- tibble(
 )
 
 
-sheets_auth(
+googlesheets4::gs4_auth(
   email = 'mluu921@gmail.com'
 )
 

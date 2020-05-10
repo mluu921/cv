@@ -59,7 +59,7 @@ source('parsing_functions.R')
 source('gather_data.R')
 
 # Parse pubmed for updated publications 
-source('gather_pubmed_pubs.R')
+# source('gather_pubmed_pubs.R')
 ```
 
 ```{r}
