@@ -1,0 +1,70 @@
+---
+name: Michael
+surname: Luu
+position: "Research Biostatistician II"
+address: "Samuel Oschin Comprehensive Cancer Institute"
+www: michaelluu.info
+email: "michael.luu@cshs.org"
+github: mluu921
+linkedin: mluu921
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: "414141"
+output: 
+  vitae::awesomecv:
+    page_total: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+```
+
+# Education
+
+```{r}
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "M.P.H. in Biostatistics & Epidemiology", "2015", "University of Southern California", "Los Angeles, California",
+  "B.Sc. in Biological Sciences", "2009", "University of California, Irvine", "Irvine, California"
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Profesional Experience
+
+```{r}
+tribble(
+  ~ role, ~ company, ~ loc, ~ dates, ~ details,
+  "Data scientist", "Nectric", "Melbourne, Australia", "Jan. 2019 - Present", 
+    list("Data science consulting projects including spatio-temporal modelling, and large scale forecasting.",
+         "Hosting workshops improving data literacy, development, analysis and modelling capabilities."
+    ),
+  "Research assistant", "Monash University", "Clayton, Australia", "Oct. 2015 - Present", 
+    list("Involved in many internal and external data projects of varying size and complexity.", 
+         "Projects typically feature large scale time series modelling or analysis, cross-sectional modelling and creating tools for improving workflows.",
+         "Consulting project clients include: Huawei, Monash University, R Consortium, NSW Chief Scientist office, DiabetesLab and Tennis Australia."),
+  "Teaching Associate", "Monash University", "Clayton, Australia", "Mar. 2016 - Present", "Sessional teaching of university students undertaking Bachelor's and Master's degrees. Specific classes are listed in 'Teaching experience'."
+  # "Data mining intern", "iSelect", "Cheltenham, Australia", "Feb. 2015 - Mar. 2015", "Improved business reporting with interactive visualisations, and model-based anomaly detection.",
+) %>% 
+  detailed_entries(role, dates, company, loc, details)
+```
+
+# Teaching Experience
+
+# Professional Activities
+
+# Profesional Membership
+
+# Peer Reviewed Publications
+
+```{r}
+library(dplyr)
+knitr::write_bib(c("vitae", "tibble"), "packages.bib")
+
+bibliography_entries("packages.bib") %>%
+  arrange(desc(author$family), issued)
+```
+
