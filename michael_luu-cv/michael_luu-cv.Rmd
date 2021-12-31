@@ -1,6 +1,6 @@
 ---
-name: Michael
-surname: Luu
+name: Michael Luu,
+surname: MPH
 position: "Research Biostatistician II"
 address: "Samuel Oschin Comprehensive Cancer Institute"
 www: michaelluu.info
@@ -20,6 +20,9 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
 library(tidyverse)
+library(here)
+library(RefManageR)
+library(lubridate)
 ```
 
 # Education
@@ -38,33 +41,73 @@ tribble(
 ```{r}
 tribble(
   ~ role, ~ company, ~ loc, ~ dates, ~ details,
-  "Data scientist", "Nectric", "Melbourne, Australia", "Jan. 2019 - Present", 
-    list("Data science consulting projects including spatio-temporal modelling, and large scale forecasting.",
-         "Hosting workshops improving data literacy, development, analysis and modelling capabilities."
+  "Research Biostatistician II", "Samuel Oschin Comprehensive Cancer Institute", "Los Angeles, California", "2016 - Present", 
+    list("Assist and collaborate in preparation of grant proposals, protocol designs, publications, and presentation by providing statistical support for sample size determination and power analysis.",
+         "Analysis of large cancer registry for survival outcomes from the National Cancer Database (NCDB), and the Surveillance, Epidemiology, and End Results Program (SEER-Medicare) from the National Cancer Institute (NCI)"
     ),
-  "Research assistant", "Monash University", "Clayton, Australia", "Oct. 2015 - Present", 
-    list("Involved in many internal and external data projects of varying size and complexity.", 
-         "Projects typically feature large scale time series modelling or analysis, cross-sectional modelling and creating tools for improving workflows.",
-         "Consulting project clients include: Huawei, Monash University, R Consortium, NSW Chief Scientist office, DiabetesLab and Tennis Australia."),
-  "Teaching Associate", "Monash University", "Clayton, Australia", "Mar. 2016 - Present", "Sessional teaching of university students undertaking Bachelor's and Master's degrees. Specific classes are listed in 'Teaching experience'."
-  # "Data mining intern", "iSelect", "Cheltenham, Australia", "Feb. 2015 - Mar. 2015", "Improved business reporting with interactive visualisations, and model-based anomaly detection.",
+  "Research Biostatistician I", "Children's Hospital Los Angeles", "Los Angeles, California", "2016", 
+    list("Provided statistical support to a multidisciplinary group of faculty physicians, residents, and fellows in study design, power analysis, sample size calculation and data analysis."
+    ),
+  "Quality Improvement Analyst", "Children's Hospital Los Angeles", "Los Angeles, California", "2015 - 2016", 
+    list("Collaborated with a multidisciplinary NICCU quality improvement team by providing key analytic insight and development of key analytical tools that directly affect patient care, such as the CHLA/USC Division of Neonatology Enteral Feeding Calculator, and CHLA/USC Division of Neonatology Hand Hygiene Dashboard."
+    ),
+  "Epidemiology & Outcomes Research Intern", "Children's Hospital Los Angeles", "Los Angeles, California", "2014 - 2015", 
+    list("Performed exploratory analysis on large administrative databases such as the Healthcare Cost and Utilization Project Kids Inpatient Database (HCUP-KIDs), California’s Office of Statewide Health Planning and Development and Pediatrics Health Information Systems consisting of more than 100 thousand observations and explored the relationship of resource utilization and outcomes on the high risk neonatal population."
+    )
 ) %>% 
   detailed_entries(role, dates, company, loc, details)
 ```
 
 # Teaching Experience
 
-# Professional Activities
+```{r}
+tribble(
+  ~ class,  ~ place,  ~ dates,  ~ details, ~ where,
+  'BMS510 - Biostatistics', 
+  'Cedars-Sinai Cancer Center', '2018 - present', 'Co-instructor in the biostatistics course for the biomedical sciences PhD program. Taught the introductory portion to the R programming language, data manipulation with the suite of packages as well as data visualization using ggplot2',
+  'Los Angles, California'
+  
+) %>%
+  detailed_entries(., with = class, what = place , when = dates, where = where, why = details)
+
+```
 
 # Profesional Membership
 
-# Peer Reviewed Publications
-
 ```{r}
-library(dplyr)
-knitr::write_bib(c("vitae", "tibble"), "packages.bib")
 
-bibliography_entries("packages.bib") %>%
-  arrange(desc(author$family), issued)
+tribble(
+  ~what, ~when, ~with, ~where, ~why,
+  '', '','Amaerican Statistical Association', '2018 - present', ''
+) %>%
+  detailed_entries(., with = with, where = where)
 ```
+
+
+\newpage 
+
+```{r, results = 'asis'}
+bib <- RefManageR::ReadPubMed('Michael Luu', retmax = 999)
+
+for(i in 2017:year(Sys.Date())) {
+  
+  cat('\n\n')
+  
+  cat('# Peer Reviewed Publications')
+  
+  cat('\n\n')
+  
+  cat('# ', i, '\n\n')
+  
+  SearchBib(bib, year = as.character(i), author = 'Michael Luu', .opts = list(match.author = 'exact')) %>% print()
+  
+  cat('\\newpage')
+  
+  cat('\n\n')
+  
+} 
+
+```
+
+
 
