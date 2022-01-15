@@ -17,7 +17,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, cache = T)
 library(vitae)
 library(tidyverse)
 library(here)
@@ -72,17 +72,66 @@ tribble(
 
 ```
 
+# Software Development
+```{r}
+tribble(
+  ~ class,
+  ~ place,
+  ~ details,
+  ~ where,
+  'CHLA/USC Division of Neonatology Enteral Feeding Calculator',
+  'https://nicu.shinyapps.io/feedingcalc',
+  'A web based online interactive calculator built on top of the R Shiny framework. This web application implements the enteral feeding algorithm developed internally by the quality improvement team of neonatologist and nurses at CHLA by simplifying the necessity for manual calculation, and by providing an interactive environment for custom parameters and report generation. This web application has been implemented and is in currently in clinical use at Children’s Hospital Los Angeles, LAC/USC Medical Center, and Hollywood Presbyterian Medical Center.',
+  NA
+) %>%
+  detailed_entries(., with = class, what = place, where = where, why = details)
+```
+
+# Graduate Coursework
+
+```{r}
+tribble(
+  ~ details,
+  'Health Service Delivery in the U.S.',
+  'Principles of Epidemiology',
+  'Principles of Biostatistics',
+  'Foundation in Health Education and Promotion',
+  'Environmental Health: An Epidemiological Approach',
+  'Epidemiology of Infections Disease',
+  'Data Analysis: Analysis of Continuous Data',
+  'Genetics in Public Health and Preventive Medicine',
+  'Biological Basis of Disease',
+  'Data Analysis: Analysis of Categorical Data',
+  'Public Health Leadership and Management'
+) %>% detailed_entries(why = details)
+```
+
+# Professional Activities
+
+```{r}
+tribble(
+  ~ details,
+  'Attended the following professional conferences:',
+  'The Pediatric Academic Societies Annual Meeting (2015), San Diego, CA',
+  'The Pediatric Academic Societies Annual Meeting (2016), Baltimore, MD',
+  'California Association of Neonatologists: Cool Topics in Neonatology (2016), San Diego, CA',
+  'American Academy of Pediatrics (2015), Washington, D.C.',
+  'Joint Statistical Meeting (2017), Baltimore, MD',
+  'Join Statistical Meeting (2019), Denver, CO'
+) %>% detailed_entries(why = details)
+```
+
+
 # Profesional Membership
 
 ```{r}
 
 tribble(
   ~what, ~when, ~with, ~where, ~why,
-  '', '','Amaerican Statistical Association', '2018 - present', ''
+  '', '','American Statistical Association', '2018 - present', ''
 ) %>%
   detailed_entries(., with = with, where = where)
 ```
-
 
 \newpage 
 
