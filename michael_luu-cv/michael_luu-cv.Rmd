@@ -87,6 +87,8 @@ tribble(
   detailed_entries(., with = class, what = place, where = where, why = details)
 ```
 
+\newpage 
+
 # Graduate Coursework
 
 ```{r}
@@ -120,7 +122,6 @@ tribble(
   'Join Statistical Meeting (2019), Denver, CO'
 ) %>% detailed_entries(why = details)
 ```
-
 
 # Profesional Membership
 
